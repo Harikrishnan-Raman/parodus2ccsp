@@ -280,7 +280,7 @@ static void *WALInit(void *status)
 		else
 		{
 		    strncpy(paramName,objectList[i],sizeof(paramName));
-		    ret = CcspBaseIf_discComponentSupportingNamespace(bus_handle,dst_pathname_cr, paramName,l_Subsystem, &ppComponents, &size);
+		    ret = CcspBaseIf_discComponentSupportingNamespace_Mod(bus_handle,dst_pathname_cr, paramName,l_Subsystem, &ppComponents, &size);
 			
 		    if (ret == CCSP_SUCCESS)
 		    {	    
@@ -324,7 +324,7 @@ static void *WALInit(void *status)
 	for(i = 0; i < len; i++)
 	{
 		strncpy(paramName,subObjectList[i],sizeof(paramName));
-		ret = CcspBaseIf_discComponentSupportingNamespace(bus_handle,
+		ret = CcspBaseIf_discComponentSupportingNamespace_Mod(bus_handle,
 					dst_pathname_cr, paramName, l_Subsystem, &ppComponents, &size);
 			
 		if (ret == CCSP_SUCCESS)
@@ -425,7 +425,7 @@ int getComponentDetails(char *parameterName,char ***compName,char ***dbusPath, i
 		}
 		WalPrint("Get component for parameterName : %s from stack\n",tempParamName);
 
-		ret = CcspBaseIf_discComponentSupportingNamespace(bus_handle,
+		ret = CcspBaseIf_discComponentSupportingNamespace_Mod(bus_handle,
 			dst_pathname_cr, tempParamName, l_Subsystem, &ppComponents, &size);
 		WalPrint("size : %d, ret : %d\n",size,ret);
 
@@ -1211,7 +1211,7 @@ static void retryFailedComponentCaching()
 			retryCount = 1;
 			do
 			{
-				ret = CcspBaseIf_discComponentSupportingNamespace(bus_handle,
+				ret = CcspBaseIf_discComponentSupportingNamespace_Mod(bus_handle,
 						dst_pathname_cr, paramName, l_Subsystem, &ppComponents, &size);
 
 				if (ret == CCSP_SUCCESS)
@@ -1257,7 +1257,7 @@ static void retryFailedComponentCaching()
 			retryCount = 1;
 			do
 			{
-				ret = CcspBaseIf_discComponentSupportingNamespace(bus_handle,
+				ret = CcspBaseIf_discComponentSupportingNamespace_Mod(bus_handle,
 						dst_pathname_cr, paramName, l_Subsystem, &ppComponents, &size);
 
 				if (ret == CCSP_SUCCESS)

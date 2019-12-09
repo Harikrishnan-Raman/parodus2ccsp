@@ -152,7 +152,7 @@ int addRow(char *object,char *compName,char *dbusPath,int *retIndex)
 
     WalPrint("<==========start of addRow ========>\n ");
 
-    ret = CcspBaseIf_discComponentSupportingNamespace(bus_handle, dst_pathname_cr, object, l_Subsystem, &ppComponents, &size);
+    ret = CcspBaseIf_discComponentSupportingNamespace_Mod(bus_handle, dst_pathname_cr, object, l_Subsystem, &ppComponents, &size);
 
     WalPrint("size : %d, ret : %d\n",size,ret);
 
@@ -271,7 +271,7 @@ int deleteRow(char *object)
 
     WalPrint("<==========Start of deleteRow ========>\n ");
 
-    ret = CcspBaseIf_discComponentSupportingNamespace(bus_handle, dst_pathname_cr, object, l_Subsystem, &ppComponents, &size);
+    ret = CcspBaseIf_discComponentSupportingNamespace_Mod(bus_handle, dst_pathname_cr, object, l_Subsystem, &ppComponents, &size);
     WalPrint("size : %d, ret : %d\n",size,ret);
 
     if (ret == CCSP_SUCCESS && size == 1)

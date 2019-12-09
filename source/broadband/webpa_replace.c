@@ -155,7 +155,7 @@ static int cacheTableData(char *objectName,int paramcount,char ***rowList,int *n
     snprintf(dst_pathname_cr, sizeof(dst_pathname_cr),"%s%s", l_Subsystem, CCSP_DBUS_INTERFACE_CR);
     parameterValStruct_t **parameterval = NULL;
     WalPrint("<================ Start of cacheTableData =============>\n ");
-    ret = CcspBaseIf_discComponentSupportingNamespace(bus_handle,dst_pathname_cr, objectName, l_Subsystem, &ppComponents, &size);
+    ret = CcspBaseIf_discComponentSupportingNamespace_Mod(bus_handle,dst_pathname_cr, objectName, l_Subsystem, &ppComponents, &size);
     WalPrint("size : %d, ret : %d\n",size,ret);
     if (ret == CCSP_SUCCESS && size == 1)
     {
@@ -467,7 +467,7 @@ static int getWritableParams(char *paramName, char ***writableParams, int *param
     parameterInfoStruct_t **parameterInfo = NULL;
     WalPrint("==================== Start of getWritableParams ==================\n");
     snprintf(dst_pathname_cr, sizeof(dst_pathname_cr),"%s%s", l_Subsystem, CCSP_DBUS_INTERFACE_CR);
-    ret = CcspBaseIf_discComponentSupportingNamespace(bus_handle,dst_pathname_cr, paramName, l_Subsystem, &ppComponents, &size);
+    ret = CcspBaseIf_discComponentSupportingNamespace_Mod(bus_handle,dst_pathname_cr, paramName, l_Subsystem, &ppComponents, &size);
     WalPrint("size : %d, ret : %d\n",size,ret);
     if (ret == CCSP_SUCCESS && size == 1)
     {
